@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Генератор штрихкода</title>
+<!-- Подключаем библиотеку JsBarcode -->
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+<h1>Генератор штрихкода</h1>
+<input type="text" id="barcodeValue" placeholder="Введите значение для штрихкода">
+<button onclick="generateBarcode()">Сгенерировать штрихкод</button>
+<canvas id="barcode" style="border: 1px solid black;"></canvas>
+
+<script>
+function generateBarcode() {
+    var barcodeValue = document.getElementById('barcodeValue').value;
+    
+    // Проверяем, что значение введено
+    if (barcodeValue) {
+        // Генерируем штрихкод
+        JsBarcode("#barcode", barcodeValue, {
+            format: "ean13",
+            displayValue: true,
+            fontSize: 14,
+            width: 2,
+            height: 50
+        });
+    } else {
+        alert("Пожалуйста, введите значение для штрихкода.");
+    }
+}
+</script>
+</body>
+</html>
