@@ -12,6 +12,7 @@
 <input type="text" id="barcodeValue" placeholder="Введите значение для штрихкода">
 <button onclick="generateBarcode()">Сгенерировать штрихкод</button>
 <button onclick="clearBarcode()">Очистить</button>
+<button onclick="clearAndRegenerateBarcode()">Очистить и сгенерировать заново</button>
 
 <img id="barcode"style="border: 1px solid black;" />
 
@@ -38,7 +39,7 @@ function generateBarcode() {
 function clearBarcode() {
    document.getElementById('barcodeValue').value=""
    var imgElement = document.getElementById("barcode");
- imgElement.src=""
+ imgElement
         };
 
 

@@ -12,35 +12,37 @@
 <input type="text" id="barcodeValue" placeholder="Введите значение для штрихкода">
 <button onclick="generateBarcode()">Сгенерировать штрихкод</button>
 <button onclick="clearBarcode()">Очистить</button>
+<button onclick="clearAndRegenerateBarcode()">Очистить и сгенерировать заново</button>
 
-<img id="barcode"style="border: 1px solid black;" />
+<canvas id="barcode" style="border: 1px solid black;"></canvas>
 
 <script>
 function generateBarcode() {
     var barcodeValue = document.getElementById('barcodeValue').value;
-     
+    
     // Проверяем, что значение введено
     if (barcodeValue) {
         // Генерируем штрихкод
         JsBarcode("#barcode", barcodeValue, {
             format: "ean13",
-            displayValue: true,
+            displayValue: false,
             fontSize: 14,
             width: 2,
             height: 50
         });
-        console.log(JsBarcode)
     } else {
         alert("Пожалуйста, введите значение для штрихкода.");
     }
 }
-
+// 
 function clearBarcode() {
-   document.getElementById('barcodeValue').value=""
-   var imgElement = document.getElementById("barcode");
- imgElement.src=""
-        };
+    var canvas = document.getElementById('barcode');
+var ctx = canvas.getContext('2d');
 
+// Нарисовать белый квадрат
+ctx.fillStyle = 'white';
+ctx.fillRect(50, 50, 100, 100);
+}
 
 </script>
 </body>

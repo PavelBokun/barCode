@@ -10,15 +10,17 @@
 <body>
 <h1>Генератор штрихкода</h1>
 <input type="text" id="barcodeValue" placeholder="Введите значение для штрихкода">
+<input type="button" id="barcodeValue1" placeholder="Очистить">
+
 <button onclick="generateBarcode()">Сгенерировать штрихкод</button>
 <button onclick="clearBarcode()">Очистить</button>
 
-<img id="barcode"style="border: 1px solid black;" />
+<canvas id="barcode" style="border: 1px solid black;"></canvas>
 
 <script>
 function generateBarcode() {
     var barcodeValue = document.getElementById('barcodeValue').value;
-     
+    
     // Проверяем, что значение введено
     if (barcodeValue) {
         // Генерируем штрихкод
@@ -29,19 +31,22 @@ function generateBarcode() {
             width: 2,
             height: 50
         });
-        console.log(JsBarcode)
     } else {
         alert("Пожалуйста, введите значение для штрихкода.");
     }
 }
-
-function clearBarcode() {
-   document.getElementById('barcodeValue').value=""
-   var imgElement = document.getElementById("barcode");
- imgElement.src=""
-        };
-
-
+function clearBarcode(){
+    var barcodeValue1=document.getElementById('barcodeValue').value
+    с
+    var barcode2=barcodeValue1
+    JsBarcode("#barcode", barcode2, {
+            format: "ean13",
+            displayValue: true,
+            fontSize: 14,
+            width: 2,
+            height: 50
+        })
+}
 </script>
 </body>
 </html>
