@@ -20,15 +20,15 @@ function generateBarcode() {
     var barcodeValue = document.getElementById('barcodeValue').value;
      
     // Проверяем, что значение введено
-    if (barcodeValue) {
+    if (barcodeValue!) {
         // Генерируем штрихкод
         JsBarcode("#barcode", barcodeValue, {
             format: "ean13",
             displayValue: true,
             fontSize: 14,
             width: 2,
-            height: 50
-            
+            height: 50,
+            color:"blue"
         });
         console.log(JsBarcode)
     } else {
